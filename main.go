@@ -3,7 +3,7 @@ package main
 import (
 	"bookend/controllers"
 	"bookend/inits"
-	"github.com/gin-contrib/cors"
+	"bookend/middlewares"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -22,12 +22,7 @@ func main() {
 		return
 	}
 
-	r.Use(cors.New(cors.Config{
-		AllowOrigins:  []string{"*"},
-		AllowMethods:  []string{"GET", "POST"},
-		AllowHeaders:  []string{"Origin"},
-		ExposeHeaders: []string{"Content-Length"},
-	}))
+	r.Use(middlewares.CORSMiddleware())
 
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{

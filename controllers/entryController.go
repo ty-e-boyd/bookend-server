@@ -10,11 +10,11 @@ import (
 
 func CreateEntry(ctx *gin.Context) {
 	var body struct {
-		Title      string
-		Body       string
-		BookName   string
-		Author     string
-		PageNumber string
+		Title      string `json:"title"`
+		Body       string `json:"body"`
+		BookName   string `json:"bookname"`
+		Author     string `json:"author"`
+		PageNumber string `json:"pagenumber"`
 	}
 
 	err := ctx.BindJSON(&body)
