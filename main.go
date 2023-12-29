@@ -34,7 +34,7 @@ func main() {
 	r.GET("/v1/entry", controllers.GetEntries)
 	r.GET("/v1/entry/:id", controllers.GetEntry)
 
-	r.POST("/v1/sms", controllers.SendAText)
+	r.POST("/v1/email", controllers.SendEmail)
 
 	runtimeErr := r.Run()
 	if runtimeErr != nil {
